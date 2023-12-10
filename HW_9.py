@@ -38,7 +38,6 @@ def change_contact(name, phone):
 
 @input_error
 def phone_contact(name):
-    result = ' '
     phone = contacts.get(name, "Contact not found.")
     return f"{name.capitalize()} : {phone}\n"
 
@@ -64,22 +63,12 @@ CONSOLE_COMMAND = {
     "add": add_contact,
     "change": change_contact,
     "phone": phone_contact,
-    "show_all": show_all_contacts,
+    "show all": show_all_contacts,
     "exit": good_bye
 }
 
 
 def main():
-    if len(sys.argv) > 1:
-        command = sys.argv[1].lower()
-        args = sys.argv[2:] if len(sys.argv) > 2 else None
-        func = CONSOLE_COMMAND.get(command)
-        if func:
-            if args:
-                print(func(*args))
-            else:
-                print(func())
-
     while True:
         user_input = input("Enter command: ").lower()
         if user_input in ("good bye", "close", "exit"):
