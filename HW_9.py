@@ -63,7 +63,7 @@ CONSOLE_COMMAND = {
     "add": add_contact,
     "change": change_contact,
     "phone": phone_contact,
-    "show all": show_all_contacts,
+    "show_all": show_all_contacts,
     "exit": good_bye
 }
 
@@ -73,6 +73,9 @@ def main():
         user_input = input("Enter command: ").lower()
         if user_input in ("good bye", "close", "exit"):
             print(CONSOLE_COMMAND["exit"]())
+            break
+        if user_input in ("show all"):
+            print(CONSOLE_COMMAND["show_all"]())
             break
         else:
             command_parts = user_input.split(maxsplit=1)
